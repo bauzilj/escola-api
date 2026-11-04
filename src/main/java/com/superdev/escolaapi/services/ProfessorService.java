@@ -28,14 +28,14 @@ public class ProfessorService {
                 .build();
         return  this.repository.save(professor);
     }
-    public Professor showProfessorById(int id){
+    public Professor showProfessorById(Long id){
         var professor = repository.findById(id).orElseThrow(()-> new ResourceNotFoundException(
                 "Professor with id" + id + " not found"
         ));
         return professor;
     }
 
-    public Professor updateProfessor(int id, ProfessorUpdateDto dado){
+    public Professor updateProfessor(Long id, ProfessorUpdateDto dado){
         var professor = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(
                 "Professor with id " + id + " not found"
         ));
@@ -46,7 +46,7 @@ public class ProfessorService {
         return this.repository.save(professor);
     }
 
-    public Professor deleteProfessor(int id){
+    public Professor deleteProfessor(Long id){
         var professor = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(
                 "Professor with id " + id + " not found"
         ));

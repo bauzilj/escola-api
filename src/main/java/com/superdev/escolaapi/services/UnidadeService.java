@@ -28,7 +28,7 @@ public class UnidadeService {
         return this.repository.save(unidade);
     }
 
-    public Unidade updateUnidade(int id, UnidadeUpdateDto dado){
+    public Unidade updateUnidade(Long id, UnidadeUpdateDto dado){
         var unidade = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(
                 "Unidade with id " + id + " not found"
         ));
@@ -39,14 +39,14 @@ public class UnidadeService {
         return this.repository.save(unidade);
     }
 
-    public Unidade showById(int id){
+    public Unidade showById(Long id){
         var unidade = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(
                 "Unidade with id " + id + " not found"
         ) ) ;
         return unidade;
     }
 
-    public Unidade deleteUnidade(int id){
+    public Unidade deleteUnidade(Long id){
         var unidade = repository.findById(id).orElseThrow();
 
         repository.delete(unidade);

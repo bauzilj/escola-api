@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class Unidade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(length = 120, nullable = false)
     private String nome;

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/alunos")
+@RequestMapping("/api/v1/alunos")
 public class AlunoController {
     private final AlunoService service;
     public  AlunoController(AlunoService service){this.service = service;}

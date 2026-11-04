@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/professores")
+@RequestMapping("/api/v1/professores")
 public class ProfessorController {
     private  final ProfessorService service;
     public ProfessorController(ProfessorService service){this.service = service;}
@@ -28,18 +28,18 @@ public class ProfessorController {
     }
 
     @GetMapping("/{id}")
-    public Professor showProfessorById(@PathVariable int id){
+    public Professor showProfessorById(@PathVariable Long id){
         return service.showProfessorById(id);
     }
 
     @PutMapping("/{id}")
-    public Professor updateProfessor(@PathVariable int id, @RequestBody @Valid ProfessorUpdateDto dto){
+    public Professor updateProfessor(@PathVariable Long id, @RequestBody @Valid ProfessorUpdateDto dto){
         return  service.updateProfessor(id, dto);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public Professor deleteProfessor(@PathVariable int id){
+    public Professor deleteProfessor(@PathVariable Long id){
         return  service.deleteProfessor(id);
     }
 }

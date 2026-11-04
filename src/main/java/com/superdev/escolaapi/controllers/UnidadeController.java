@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/unidades")
+@RequestMapping("/api/v1/unidades")
 public class UnidadeController {
     private final UnidadeService service;
 
@@ -28,17 +28,17 @@ public class UnidadeController {
     }
 
     @PutMapping("/{id}")
-    public Unidade updateUnidade(@PathVariable int id, @RequestBody @Valid UnidadeUpdateDto dto){
+    public Unidade updateUnidade(@PathVariable Long id, @RequestBody @Valid UnidadeUpdateDto dto){
         return service.updateUnidade(id,dto);
     }
     @GetMapping("/{id}")
-    public Unidade showById(@PathVariable int id){
+    public Unidade showById(@PathVariable Long id){
         return service.showById(id);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public Unidade deleteUnidade(@PathVariable int id){return service.deleteUnidade(id);}
+    public Unidade deleteUnidade(@PathVariable Long id){return service.deleteUnidade(id);}
 
 
 }
